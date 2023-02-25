@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function Header({ title }) {
-  return <h1>{title ? title : 'Default title'}</h1>;
+  return <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{title ? title : 'Default title'}</motion.h1>;
 }
 
 export default function HomePage() {
@@ -14,14 +15,14 @@ export default function HomePage() {
   }
 
   return (
-    <div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <Header title="Develop. Preview. Ship. 🚀" />
-      <ul>
+      <motion.ul initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
         {names.map((name) => (
-          <li key={name}>{name}</li>
+                  <motion.li key={name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>{name}</motion.li>
         ))}
-      </ul>
+            </motion.ul>
 
       <button onClick={handleClick}>Click({clicked})</button>
-    </div>);
+    </motion.div>);
 }
