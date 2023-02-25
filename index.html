@@ -7,15 +7,27 @@
     <script type="text/jsx">
         const app = document.getElementById('app');
 
-        function Header() {
-            return <h1>Hello World</h1>;
+        function Header({title}) {
+            return <h1>{title ? title : 'Default title'}</h1>;
         }
 
         function HomePage() {
-          return <div>
-            <Header />
-            <Header />
-          </div>;
+          const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+          
+          function handleClick() {
+            console.log('Clicked!');
+          }
+
+          return (<div>
+            <Header title="Develop. Preview. Ship. 🚀" />
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+                ))}
+            </ul>
+
+            <button onClick={handleClick}>Click me</button>
+          </div>);
         }
 
         ReactDOM.render(<HomePage />, app);
