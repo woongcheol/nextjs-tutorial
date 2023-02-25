@@ -6,7 +6,19 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
         const app = document.getElementById('app');
-        ReactDOM.render(<h1>Hello World</h1>, app);
+
+        function Header() {
+            return <h1>Hello World</h1>;
+        }
+
+        function HomePage() {
+          return <div>
+            <Header />
+            <Header />
+          </div>;
+        }
+
+        ReactDOM.render(<HomePage />, app);
     </script>
   </body>
 </html>
