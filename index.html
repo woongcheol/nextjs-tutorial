@@ -13,9 +13,10 @@
 
         function HomePage() {
           const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
-          
+          const [clicked, setClicked] = React.useState(0);
+
           function handleClick() {
-            console.log('Clicked!');
+            setClicked(clicked + 1);
           }
 
           return (<div>
@@ -26,7 +27,7 @@
                 ))}
             </ul>
 
-            <button onClick={handleClick}>Click me</button>
+            <button onClick={handleClick}>Click({clicked})</button>
           </div>);
         }
 
